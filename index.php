@@ -1,27 +1,31 @@
 <?php
 
 require_once "controllers/CustommerController.php";
-class hienthi extends CustommerController{
-
+class hienthi{
+    public $custommer;
+    public function __construct()
+    {
+        $this->custommer = new CustommerController();
+    }
     public function sw()
     {
         $url = isset($_GET['url']) ? $_GET['url'] : "";
         switch ($url) {
 
             case "";
-                echo $this->list_ct();
+                echo $this->custommer->list_ct();
                 break;
             case "del_ct";
-                echo $this->delete_ct();
+                echo $this->custommer->delete_ct();
                 break;
             case "add_ct";
-                echo $this->add_ct();
+                echo $this->custommer->add_ct();
                 break;
             case "detail";
-                echo $this->detail();
+                echo $this->custommer->detail();
                 break;    
-            case "edit";
-                echo $this->edit_CT();
+            case "edit_ct";
+                echo $this->custommer->edit_CT();
                 break;
         }
     }
